@@ -12,9 +12,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Choose delivery mode (ROAD/SEA): ");
-        String deliveryMode = scanner.nextLine().toUpperCase();
+        String deliveryMode = scanner.nextLine().trim().toUpperCase();
         System.out.print("Choose UI platform (WINDOWS/MACOS): ");
-        String platform = scanner.nextLine().toUpperCase();
+        String platform = scanner.nextLine().trim().toUpperCase();
 
         System.out.println("Delivery mode: " + deliveryMode);
         System.out.println("UI platform: " + platform);
