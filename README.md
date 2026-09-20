@@ -27,8 +27,10 @@ The project does not require:
 
 ---
 
+
 ## Project Structure
 
+```text
 src
 │
 ├── Main.java
@@ -56,7 +58,8 @@ src
 │
 └── application
 └── DeliveryApplication.java
----
+```
+
 
 # Factory Method Implementation
 
@@ -64,36 +67,40 @@ The Factory Method pattern is responsible for creating transport objects.
 
 ## Product
 
-The Transport interface defines the common delivery behavior:
-
+The `Transport` interface defines the common delivery behavior:
+```
 deliver(String cargo, String destination)
+```
 ## Concrete Products
 
 The application contains two transport implementations:
 
-- Truck - provides road delivery behavior.
-- Ship - provides sea delivery behavior.
+- `Truck` - provides road delivery behavior.
+- `Ship` - provides sea delivery behavior.
 
 ## Creator
 
-The abstract class Logistics works as the creator.
+The abstract class `Logistics` works as the creator.
 
 It contains:
 
+```
 createTransport()
+```
 which is overridden by concrete creators.
 
 The class also contains:
-
+```
 planDelivery()
+```
 which provides the common delivery workflow.
 
 ## Concrete Creators
 
 Two concrete creator classes are implemented:
 
-- RoadLogistics creates a Truck object.
-- SeaLogistics creates a Ship object.
+- `RoadLogistics` creates a `Truck` object.
+- `SeaLogistics` creates a `Ship` object.
 
 The client does not directly create transport objects. Transport creation is handled through the Factory Method.
 
@@ -107,38 +114,43 @@ The Abstract Factory pattern is responsible for creating related UI components.
 
 Two product interfaces are used:
 
-- Button
-- Checkbox
+- `Button`
+- `Checkbox`
 
 Both interfaces define a rendering method:
-
+```
 paint()
+```
+
 ## Concrete Products
 
 Windows family:
 
-- WindowsButton
-- WindowsCheckbox
+- `WindowsButton`
+- `WindowsCheckbox`
 
 macOS family:
 
-- MacOSButton
-- MacOSCheckbox
+- `MacOSButton`
+- `MacOSCheckbox`
 
 Each component prints its platform and component type during rendering.
 
 ## Abstract Factory
 
-The GUIFactory interface defines methods:
+The `GUIFactory` interface defines methods:
 
+```
 createButton()
 createCheckbox()
+```
+
 ## Concrete Factories
 
 Two factories are implemented:
 
-- WindowsFactory
-- MacOSFactory
+- `WindowsFactory`
+- `MacOSFactory`
 
 Each factory creates a matching pair of UI components for its platform.
 
@@ -146,12 +158,12 @@ Each factory creates a matching pair of UI components for its platform.
 
 # Application Integration
 
-The DeliveryApplication class combines both design patterns.
+The `DeliveryApplication` class combines both design patterns.
 
 It receives:
 
-- GUIFactory
-- Logistics
+- `GUIFactory`
+- `Logistics`
 
 through its constructor.
 
@@ -166,15 +178,17 @@ The client works with interfaces instead of concrete classes.
 ## Step 1
 
 Clone the repository:
-
+```
 git clone <repository-link>
+```
+
 ## Step 2
 
 Open the project in IntelliJ IDEA.
 
 ## Step 3
 
-Select Java JDK 17.
+Select Java JDK 25.
 
 ## Step 4
 
@@ -182,13 +196,18 @@ Build the project:
 
 Build → Build Project
 or use:
-
+```
 Ctrl + F9
+```
+
 ## Step 5
 
 Run:
 
+```
 Main.java
+```
+
 ---
 
 # Supported Input Values
@@ -201,16 +220,19 @@ ROAD
 SEA
 Available options:
 
-- ROAD creates RoadLogistics with Truck.
-- SEA creates SeaLogistics with Ship.
+- ROAD creates `RoadLogistics` with `Truck`.
+- SEA creates `SeaLogistics` with `Ship`.
 
 ---
 
 ## UI Platform
 
 The application accepts:
+```
 WINDOWS
 MACOS
+```
+
 Available options:
 
 - WINDOWS creates Windows button and Windows checkbox.
@@ -221,11 +243,13 @@ Available options:
 # Sample Run 1
 
 Input:
-
+```
 ROAD
 WINDOWS
-Output:
+```
 
+Output:
+```
 Delivery mode: ROAD
 UI platform: WINDOWS
 
@@ -234,16 +258,20 @@ Rendering Windows checkbox
 
 Delivery planning started
 Truck delivers laboratory equipment to Aktau warehouse
+```
+
 ---
 
 # Sample Run 2
 
 Input:
-
+```
 SEA
 MACOS
-Output:
+```
 
+Output:
+```
 Delivery mode: SEA
 UI platform: MACOS
 
@@ -252,6 +280,8 @@ Rendering macOS checkbox
 
 Delivery planning started
 Ship delivers laboratory equipment to Aktau warehouse
+```
+
 ---
 
 # Validation
@@ -261,12 +291,16 @@ The application validates user input.
 ## Unsupported delivery mode
 
 Input:
-
+```
 AIR
 WINDOWS
-Output:
+```
 
+Output:
+```
 Unsupported delivery mode
+```
+
 The application stops without creating a transport object.
 
 ---
@@ -274,12 +308,16 @@ The application stops without creating a transport object.
 ## Unsupported UI platform
 
 Input:
-
+```
 ROAD
 LINUX
-Output:
+```
 
+Output:
+```
 Unsupported UI platform
+```
+
 The application stops without creating UI components.
 
 ---
