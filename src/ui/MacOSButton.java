@@ -1,5 +1,5 @@
 package ui;
-public class MacOsButton implements Button {
+public class MacOSButton implements Button {
     @Override
     public void paint() {
 

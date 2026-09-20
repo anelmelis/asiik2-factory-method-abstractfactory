@@ -1,5 +1,5 @@
 package ui;
-public class WinCheckbox implements Checkbox {
+public class WindowsCheckbox implements Checkbox {
     @Override
     public void paint() {
 

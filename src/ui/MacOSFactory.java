@@ -1,12 +1,12 @@
 package ui;
-public class MacOsFactory implements GUIFactory {
+public class MacOSFactory implements GUIFactory {
     @Override
     public Button createButton() {
-        return new MacOsButton();
+        return new MacOSButton();
     }
 
     @Override
     public Checkbox createCheckbox() {
-        return new MacOsCheckbox();
+        return new MacOSCheckbox();
     }
 }

@@ -1,5 +1,5 @@
 package ui;
-public class WinFactory implements GUIFactory {
+public class WindowsFactory implements GUIFactory {
     @Override
     public Button createButton() {
         return new WindowsButton();
@@ -7,6 +7,6 @@ public class WinFactory implements GUIFactory {
 
     @Override
     public Checkbox createCheckbox() {
-        return new WinCheckbox();
+        return new WindowsCheckbox();
     }
 }
